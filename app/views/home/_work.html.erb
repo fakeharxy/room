@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header">
+     <%= work.title %> by <%= work.user.username %>
+  </div>
+  <div class="card-body">
+    <p class="card-p"><b> Genre: </b> <%= work.genre %></p>
+    <p class="card-p"><b> Worked on: </b> <%= time_ago_in_words work.updated_at %> ago </p>
+
+    <a href="/works/<%= work.id  %>" class="btn btn-info card-button">Let's go!</a>
+  </div>
+</div>

@@ -1,8 +1,14 @@
 <h1 class="heading"> <%= current_user.username %>'s new project </h1>
 
 <%= form_for @work, url: {action: "create"}, html: {class: "form"} do |f| %>
-  <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title. You can change this later." %>
-  <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "Genre. Give your audience a clue what they're about to read!" %>
+  <% if @work.errors.full_messages.any? %>
+    <div class="alert alert-danger">
+      <%= @work.errors.full_messages.first %>
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+    </div>
+  <% end %>
+  <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title. You can change this later.", maxlength: 20 %>
+  <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "Genre. Give your audience a clue what they're about to read!", maxlength: 20 %>
   <%= f.submit "Create", class: "btn btn-lg btn-success button" %>
 <% end %>
 

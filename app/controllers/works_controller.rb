@@ -3,7 +3,9 @@
 class WorksController < ApplicationController
   before_action :authenticate_user!
 
-  def index; end
+  def index
+    load_works
+  end
 
   def new
     build_work
@@ -21,7 +23,7 @@ class WorksController < ApplicationController
   private
 
   def load_works
-    @works ||= work_scope.to_a
+    @works ||= work_scope.where(user_id: current_user.id).to_a
   end
 
   def load_work

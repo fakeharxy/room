@@ -8,3 +8,5 @@
 #
 
 User.create(username: "papercloud", email: "p@h.co", password: "qwerty1", password_confirmation: "qwerty1", writer: true)
+
+User.create(username: "test", email: "test@test.com", password: "qwerty1", password_confirmation: "qwerty1", writer: false)
