@@ -1,0 +1,23 @@
+.navbar {
+  padding: 0rem 1rem !important;
+}
+
+.is-right {
+  right: 10px;
+  position: absolute;
+}
+
+.nav--title {
+  border-left: solid 2px grey;
+  border-right: solid 2px grey;
+  padding: 0px 9px;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  top: 25px;
+}
+
+.nav--logo {
+  height: 40px;
+}

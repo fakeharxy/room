@@ -1,0 +1,8 @@
+<h1 class="heading"> <%= current_user.username %>'s new project </h1>
+
+<%= form_for @work, url: {action: "create"}, html: {class: "form"} do |f| %>
+  <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title. You can change this later." %>
+  <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "Genre. Give your audience a clue what they're about to read!" %>
+  <%= f.submit "Create", class: "btn btn-lg btn-success button" %>
+<% end %>
+

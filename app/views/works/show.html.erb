@@ -1,0 +1,9 @@
+<% if current_user != @work.user %>
+  <div class="message-content">
+    <%= sanitize markdown_to_html(@work.body) %>
+  </div>
+<% end %>
+
+<% if current_user == @work.user %>
+  <textarea id="message_content" class="textbox"><%= @work.body %></textarea>
+<% end %>
