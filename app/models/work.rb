@@ -12,7 +12,7 @@ class Work < ApplicationRecord
   end
 
   def self.active
-    Work.where("updated_at > ?", 10.minutes.ago)
+    Work.where("updated_at > ?", 60.minutes.ago)
   end
 
   def is_bookmarked_by(user_id)
