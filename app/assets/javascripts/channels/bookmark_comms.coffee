@@ -13,4 +13,5 @@ App.bookmark_comms = App.cable.subscriptions.create { channel: "BookmarkCommsCha
 
 $(document).on 'click', '#bookmark_work', (event) ->
   App.bookmark_comms.mark()
+  document.getElementById("bookmark_img").src = "/images/filled_star.png";
 

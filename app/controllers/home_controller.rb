@@ -3,12 +3,17 @@ class HomeController < ApplicationController
 
   def index
     load_recent_works
+    load_bookmarks
   end
 
   private
 
   def load_recent_works
-    @works ||= work_scope.top_10_recent
+    @recent_works ||= work_scope.top_10_recent
+  end
+
+  def load_bookmarks
+    @bookmarked_works ||= current_user.bookmarked_works
   end
 
   def work_scope

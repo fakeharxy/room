@@ -34,7 +34,7 @@
   <% if @work != nil  %>
     <span class="nav--title navbar-brand"> <%= @work.title %> by <%= @work.user.username %>
     <% if @work.user.id != current_user.id %>
-      <span id="bookmark_work" class="nav--star"><img alt='Bookmark this work' src="/images/unfilled_star.png" width='25' /></span>
+         <span id="bookmark_work" class="nav--star"><img id="bookmark_img" alt='Bookmark this work' src="/images/<% if !@work.is_bookmarked_by(user.id)  %>un<% end %>filled_star.png" width='25' /></span>
     <% end %> 
     </span>
   <% end  %>
