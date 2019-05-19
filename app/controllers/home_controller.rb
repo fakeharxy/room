@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    load_active
     load_recent_works
     load_bookmarks
   end
@@ -10,6 +11,10 @@ class HomeController < ApplicationController
 
   def load_recent_works
     @recent_works ||= work_scope.top_10_recent
+  end
+
+  def load_active
+    @active ||= Work.active
   end
 
   def load_bookmarks

@@ -11,6 +11,10 @@ class Work < ApplicationRecord
     Work.order('updated_at DESC').limit(10)
   end
 
+  def self.active
+    Work.where("updated_at > ?", 10.minutes.ago)
+  end
+
   def is_bookmarked_by(user_id)
     Bookmark.where(user_id: user_id).where(work_id: id).count != 0
   end
