@@ -5,7 +5,7 @@
 
 <h1 class="heading"> Bookmarked projects </h1>
 
-<% @recent_works.each do |work|  %>
+<% @bookmarked_works.each do |work|  %>
   <%= render :partial => 'home/work', :locals => {work: work} %>
 <% end  %>
 
