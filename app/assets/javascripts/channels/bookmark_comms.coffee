@@ -1,15 +1,21 @@
 App.bookmark_comms = App.cable.subscriptions.create { channel: "BookmarkCommsChannel", work: window.location.pathname.split("/")[2] },
   connected: ->
-    # Called when the subscription is ready for use on the server
+    App.bookmark_comms.pingViewCount();
 
   disconnected: ->
-    # Called when the subscription has been terminated by the server
+    @perform 'update_view_count'
 
   received: (data) ->
-    # Called when the subscription has been terminated by the server
+    if (data.view_count)
+      $('#navbar--viewcount').html data.view_count
 
   mark: () ->
     @perform 'mark'
+
+  pingViewCount: () ->
+    $('#navbar--viewcount').html '0'
+    @perform 'update_view_count'
+    setTimeout(App.bookmark_comms.connected,60000)
 
 $(document).on 'click', '#bookmark_work', (event) ->
   App.bookmark_comms.mark()

@@ -3,7 +3,7 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
-    # Called when the subscription has been terminated by the server
+    App.work_comms.unsubscribe()
 
   received: (data) ->
     if (data.message && !data.message.blank?)
