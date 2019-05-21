@@ -8,9 +8,16 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
   received: (data) ->
     if (data.message && !data.message.blank?)
       $('.message-content').html data.message
+      App.work_comms.scrollToMiddle("#scrollPos");
 
-  speak: (message) ->
-    @perform 'speak', message: message
+  speak: (message, cursorPosition) ->
+    @perform 'speak', message: message, cursor_position: cursorPosition
+
+  scrollToMiddle: (id) ->
+    elem_position = $(id).offset().top;
+    window_height = $(window).height();
+    y = elem_position - window_height/2;
+    window.scrollTo(0,y);
 
 $(document).on 'keyup', '#message_content', (event) ->
-  App.work_comms.speak event.target.value
+  App.work_comms.speak(event.target.value, $('#message_content').prop("selectionEnd"))

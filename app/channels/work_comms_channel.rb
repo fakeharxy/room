@@ -2,7 +2,7 @@
 
 class WorkCommsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "work_comms_channel_#{params[:work]}"
+    stream_from "work_comms_channel_#{params[:work]}" if current_user.id != Work.find_by_id(params[:work]).user.id
   end
 
   def unsubscribed
@@ -12,8 +12,9 @@ class WorkCommsChannel < ApplicationCable::Channel
   def speak(data)
     @work = Work.find_by_id(params[:work])
     @work.update(body: data['message'])
+    message = data['message'].insert(data['cursor_position'], ' <span id="scrollPos" />')
     ActionCable.server.broadcast "work_comms_channel_#{params[:work]}",
-                                 message: markdown_to_html(data['message'])
+                                 message: markdown_to_html(message)
   end
 
   def markdown_to_html(text)

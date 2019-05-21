@@ -18,6 +18,10 @@ body, .container {
   height: 100%;
 }
 
+.container {
+  padding-top: 37px;
+}
+
 .alert--flash {
   position: absolute !important;
   top: 60px;

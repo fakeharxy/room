@@ -1,3 +1,4 @@
+<br />
 <% if current_user != @work.user %>
   <div class="message-content">
     <%= sanitize markdown_to_html(@work.body) %>
@@ -5,5 +6,9 @@
 <% end %>
 
 <% if current_user == @work.user %>
+    <div class="alert alert-success">
+      You're streaming live! Write something amazing!
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+    </div>
   <textarea id="message_content" class="textbox"><%= @work.body %></textarea>
 <% end %>
