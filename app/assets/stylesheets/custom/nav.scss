@@ -20,9 +20,16 @@
 
 .nav--viewcount {
   position: absolute;
-  right: -90px;
+  right: -120px;
   top: 5px;
 
+}
+
+.nav--clap {
+  position: absolute;
+  right: -75px;
+  top: 3px;
+  cursor: pointer;
 }
 
 .image {

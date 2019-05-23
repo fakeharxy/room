@@ -2,9 +2,9 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    load_active
-    load_recent_works
-    load_bookmarks
+    load_active if params[:type] == "active" || params[:type] == nil
+    load_recent_works if params[:type] == "popular"
+    load_bookmarks if params[:type] == "bookmark"
   end
 
   private

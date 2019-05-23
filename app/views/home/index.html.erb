@@ -1,12 +1,31 @@
-<h3 class="heading"> Projects people are working on right now! </h3>
 
-<% @active.each do |work|  %>
-  <%= render :partial => 'home/work', :locals => {work: work} %>
-<% end  %>
+<div class="locater">
+  <ul class="locater--list list-group list-group-horizontal">
+    <a class="locater--link" href="/home/active">
+      <li class="locater--heading list-group-item <%= 'active' if @active %>">Active</li>
+    </a>
+    <a class="locater--link" href="/home/popular">
+      <li class="locater--heading list-group-item <%= 'active' if @recent_works %>">Popular</li>
+    </a>
+    <a class="locater--link" href="/home/bookmark">
+      <li class="locater--heading list-group-item <%= 'active' if @bookmarked_works %>">Bookmarks</li>
+    </a>
+    <a class="locater--link" href="/home/search">
+      <li class="locater--heading list-group-item <%= 'active' if @search  %>">Search by Genre</li>
+    </a>
+  </ul>
+</div>
 
-<h3 class="heading"> Bookmarked projects </h3>
 
-<% @bookmarked_works.each do |work|  %>
-  <%= render :partial => 'home/work', :locals => {work: work} %>
-<% end  %>
+<% if @active  %>
+  <% @active.each do |work|  %>
+    <%= render :partial => 'home/work', :locals => {work: work} %>
+  <% end  %>
+<% end %>
+
+<% if @bookmarked_works  %>
+  <% @bookmarked_works.each do |work|  %>
+    <%= render :partial => 'home/work', :locals => {work: work} %>
+  <% end  %>
+<% end %>
 
