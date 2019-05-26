@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_100954) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "writer", default: false
+    t.boolean "writer", default: true
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 2019_05_17_100954) do
   create_table "works", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
-    t.text "body"
+    t.text "body", default: ""
     t.string "genre"
+    t.integer "claps", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

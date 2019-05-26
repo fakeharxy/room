@@ -1,0 +1,18 @@
+.clap--div{
+  position:absolute;
+  top: 50px;
+  left:10px;
+  width:10%;
+  animation: translate 10s infinite linear;
+}
+.clap--img {
+  position:absolute;
+  animation: upDown 2.0s alternate infinite ease-in-out;
+}
+
+@keyframes upDown {
+  to { transform: translatey(70px);}
+}
+@keyframes translate {
+  to { transform: translatex(1000%);}
+}

@@ -21,6 +21,6 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
 
 $(document).on 'keyup', '#trix-editor',  (event) ->
   element = document.querySelector("trix-editor")
-  element.editor.insertHTML('&nbsp;')
+  element.editor.insertString("~")
   App.work_comms.speak(element.value, 0)
   element.editor.deleteInDirection("backward")
