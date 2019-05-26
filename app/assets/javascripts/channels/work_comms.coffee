@@ -19,5 +19,8 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
     y = elem_position - window_height/2;
     window.scrollTo(0,y);
 
-$(document).on 'keyup', '#message_content', (event) ->
-  App.work_comms.speak(event.target.value, $('#message_content').prop("selectionEnd"))
+$(document).on 'keyup', '#trix-editor',  (event) ->
+  element = document.querySelector("trix-editor")
+  element.editor.insertHTML('&nbsp;')
+  App.work_comms.speak(element.value, 0)
+  element.editor.deleteInDirection("backward")

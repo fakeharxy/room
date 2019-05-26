@@ -1,14 +1,15 @@
 <br />
 <% if current_user != @work.user %>
   <div class="message-content">
-    <%= sanitize markdown_to_html(@work.body) %>
+    <%= @work.body.html_safe %>
   </div>
 <% end %>
 
 <% if current_user == @work.user %>
-    <div class="alert alert-success">
-      You're streaming live! Write something amazing!
-      <a href="#" class="close" data-dismiss="alert">&#215;</a>
-    </div>
-  <textarea id="message_content" class="textbox"><%= @work.body %></textarea>
+  <div class="alert alert-success">
+    You're streaming live! Write something amazing!
+    <a href="#" class="close" data-dismiss="alert">&#215;</a>
+  </div>
+    <input id="message_content" type="hidden" value="<%= @work.body.html_safe %>" class="textbox">
+    <trix-editor input="message_content" id="trix-editor"></trix-editor>
 <% end %>
