@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     load_active if params[:type] == "active" || params[:type] == nil
-    load_recent_works if params[:type] == "popular"
+    load_popular_works if params[:type] == "popular"
     load_bookmarks if params[:type] == "bookmark"
   end
 
@@ -15,6 +15,10 @@ class HomeController < ApplicationController
 
   def load_active
     @active ||= Work.active
+  end
+
+  def load_popular_works
+    @popular ||= Work.popular
   end
 
   def load_bookmarks

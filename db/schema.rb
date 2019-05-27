@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_100954) do
+ActiveRecord::Schema.define(version: 2019_05_27_083347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "work_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "claps", force: :cascade do |t|
     t.integer "user_id"
     t.integer "work_id"
     t.datetime "created_at", null: false
@@ -30,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_100954) do
     t.datetime "remember_created_at"
     t.boolean "writer", default: true
     t.string "username"
+    t.datetime "last_clap", default: "2019-05-27 08:34:23"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -41,7 +49,6 @@ ActiveRecord::Schema.define(version: 2019_05_17_100954) do
     t.integer "user_id"
     t.text "body", default: ""
     t.string "genre"
-    t.integer "claps", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

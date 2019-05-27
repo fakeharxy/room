@@ -12,8 +12,7 @@ class BookmarkCommsChannel < ApplicationCable::Channel
   end
 
   def clap
-    Work.find_by_id(params[:work]).increment!(:claps)
-    send_clap
+    send_clap if current_user.clap_work(params[:work])
   end
 
   def update_view_count

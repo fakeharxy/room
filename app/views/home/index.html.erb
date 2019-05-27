@@ -5,7 +5,7 @@
       <li class="locater--heading list-group-item <%= 'active' if @active %>">Active</li>
     </a>
     <a class="locater--link" href="/home/popular">
-      <li class="locater--heading list-group-item <%= 'active' if @recent_works %>">Popular</li>
+      <li class="locater--heading list-group-item <%= 'active' if @popular %>">Popular</li>
     </a>
     <a class="locater--link" href="/home/bookmark">
       <li class="locater--heading list-group-item <%= 'active' if @bookmarked_works %>">Bookmarks</li>
@@ -19,6 +19,13 @@
 
 <% if @active  %>
   <% @active.each do |work|  %>
+    <%= render :partial => 'home/work', :locals => {work: work} %>
+  <% end  %>
+<% end %>
+
+
+<% if @popular  %>
+  <% @popular.each do |work|  %>
     <%= render :partial => 'home/work', :locals => {work: work} %>
   <% end  %>
 <% end %>

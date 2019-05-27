@@ -18,4 +18,17 @@ RSpec.describe Work, type: :model do
     user.remove_bookmarked_work(work1.id)
     expect(user.bookmarked_works).to eq([work2])
   end
+
+  it 'can clap a work' do
+    user.clap_work(work1.id)
+    expect(user.can_clap?).to eq(false)
+    work = Work.find_by_id(work1.id)
+    expect(work.clap_count).to eq(1)
+  end
+
+  it 'returns false if can not clap' do
+    expect(user.clap_work(work1.id)).to eq(true)
+    expect(user.clap_work(work1.id)).to eq(false)
+  end
+
 end
