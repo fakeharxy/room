@@ -46,7 +46,7 @@ ungrey = ->
 grey = ->
   document.getElementById("clap_img").src = "/images/clap-grey.png"
   document.getElementById("clap_img").style.cursor = "auto"
-  setTimeout(ungrey,30000)
+  setTimeout(ungrey,10000)
 
 unanimate = (id) ->
   search = "clap" + id

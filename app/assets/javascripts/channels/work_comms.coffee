@@ -20,5 +20,4 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
 
 $(document).on 'trix-change', (event) ->
   element = document.querySelector("trix-editor")
-  console.log(element.value)
   App.work_comms.speak(element.value, 0)

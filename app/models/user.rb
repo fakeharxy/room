@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def can_clap?
-    (last_clap - DateTime.now) <= -29
+    (last_clap - DateTime.now) <= -9
   end
 
   def bookmark_work(work_id)
