@@ -28,6 +28,8 @@ App.bookmark_comms = App.cable.subscriptions.create { channel: "BookmarkCommsCha
     callback = -> unanimate(clap_id)
     setTimeout(callback,10000)
 
+$(window).load ->
+  grey()
 
 $(document).on 'click', '#bookmark_work', (event) ->
   App.bookmark_comms.mark()
@@ -35,13 +37,16 @@ $(document).on 'click', '#bookmark_work', (event) ->
 
 $(document).on 'click', '#clap_work', (event) ->
   App.bookmark_comms.clap()
-  document.getElementById("clap_img").src = "/images/clap-grey.png"
-  document.getElementById("clap_img").style.cursor = "auto"
-  setTimeout(ungrey,60000)
+  grey()
 
 ungrey = ->
   document.getElementById("clap_img").src = "/images/clap.png";
   document.getElementById("clap_img").style.cursor = "pointer"
+
+grey = ->
+  document.getElementById("clap_img").src = "/images/clap-grey.png"
+  document.getElementById("clap_img").style.cursor = "auto"
+  setTimeout(ungrey,30000)
 
 unanimate = (id) ->
   search = "clap" + id
