@@ -36,3 +36,11 @@
   <% end  %>
 <% end %>
 
+<% if @search  %>
+  <%= render :partial => 'home/search', :locals => {search: @search} %>
+  <% if @results %>
+    <% @results.each do |work|  %>
+      <%= render :partial => 'home/work', :locals => {work: work} %>
+    <% end  %>
+  <% end %>
+<% end %>

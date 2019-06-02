@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    load_active if params[:type] == "active" || params[:type] == nil
-    load_popular_works if params[:type] == "popular"
-    load_bookmarks if params[:type] == "bookmark"
+    load_active if params[:type] == 'active' || params[:type].nil?
+    load_popular_works if params[:type] == 'popular'
+    load_bookmarks if params[:type] == 'bookmark'
+    load_search if params[:type] == 'search'
   end
 
   private
@@ -23,6 +26,14 @@ class HomeController < ApplicationController
 
   def load_bookmarks
     @bookmarked_works ||= current_user.bookmarked_works
+  end
+
+  def load_search
+    if params[:criteria] && params[:criteria] != ''
+      @search = params[:criteria]
+      @results = Work.results(params[:criteria])
+    end
+    @search ||= 'Search'
   end
 
   def work_scope

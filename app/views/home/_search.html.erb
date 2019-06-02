@@ -1,0 +1,9 @@
+<%= form_tag({url: "home/search"}, {class: "search--form input-group mb-3"}) do %>
+  <input type="text" name="criteria" class="form-control" placeholder='<%= search %>' aria-label="Search" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+      <span class="fas fa-search"></span>
+    </button>
+  </div>
+<% end %>
+
