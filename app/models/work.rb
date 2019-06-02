@@ -20,7 +20,7 @@ class Work < ApplicationRecord
   end
 
   def self.results(criteria)
-      Work.where('genre LIKE ?', "%#{criteria}%").all.sort_by(&:day_clap_count).reverse!
+    Work.where('lower(genre) LIKE ?', "%#{criteria.downcase}%").all.sort_by(&:day_clap_count).reverse!
   end
 
   def is_bookmarked_by(user_id)
