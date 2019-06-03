@@ -1,0 +1,18 @@
+.empty-group {
+  width: 50% !important;
+  margin: auto !important;
+  opacity: 0.4;
+}
+
+.empty-group--image {
+  width: 100px;
+  margin: 15px auto !important;
+  display: block;
+}
+
+.empty-group--text {
+  display: table-cell;
+  text-align: center;
+  margin: 15px auto !important;
+  display: block;
+}

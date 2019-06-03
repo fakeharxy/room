@@ -20,20 +20,29 @@
 <% if @active  %>
   <% @active.each do |work|  %>
     <%= render :partial => 'home/work', :locals => {work: work} %>
-  <% end  %>
+  <% end %>
+<% end %>
+<% if @active == [] %>
+  <%= render :partial => 'home/empty', :locals => {type: "active"} %>
 <% end %>
 
 
 <% if @popular  %>
   <% @popular.each do |work|  %>
     <%= render :partial => 'home/work', :locals => {work: work} %>
-  <% end  %>
+  <% end %>
+<% end %>
+<% if @popular == [] %>
+  <%= render :partial => 'home/empty', :locals => {type: "popular"} %>
 <% end %>
 
 <% if @bookmarked_works  %>
   <% @bookmarked_works.each do |work|  %>
     <%= render :partial => 'home/work', :locals => {work: work} %>
   <% end  %>
+  <% if @bookmarked_works == [] %>
+    <%= render :partial => 'home/empty', :locals => {type: "bookmark"} %>
+  <% end %>
 <% end %>
 
 <% if @search  %>

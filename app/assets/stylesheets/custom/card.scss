@@ -3,6 +3,11 @@
   width: 65%;
 }
 
+.card-green {
+  background: #e0f5e0 !important;
+  border: 2px dashed green !important;
+}
+
 .card-header {
   padding: 0.5rem !important;
 }
@@ -13,11 +18,11 @@
 
 .card-p {
   padding: 2px;
-  margin: 0px 0px 5px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .card-button {
   position: absolute;
-  right: 30px;
-  top: 63px;
+  right: 10px;
+  top: 98px;
 }

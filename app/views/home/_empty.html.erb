@@ -1,0 +1,13 @@
+<% if type == "bookmark" %>
+  <div class="empty-group">
+    <img class="empty-group--image" src="/images/empty-bookmark.png" />
+    <p class="empty-group--text"> You haven't bookmarked any projects yet! </p>
+    <p class="empty-group--text"> Use the star icon on any project. </p>
+  </div>
+<% else %>
+  <div class="empty-group">
+    <img class="empty-group--image" src="/images/no-content.png" />
+    <p class="empty-group--text"> There are no <%= type %> projects currently. </p>
+    <p class="empty-group--text"> Why not make one? </p>
+  </div>
+<% end %>

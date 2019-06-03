@@ -36,10 +36,10 @@
     <span class="nav--title navbar-brand"> <%= @work.title %> by <%= @work.user.username %>
     <% if @work.user.id != current_user.id %>
       <span id="bookmark_work" class="nav--star">
-        <img id="bookmark_img" alt='Bookmark this work' src="/images/<% if !@work.is_bookmarked_by(user.id)  %>un<% end %>filled_star.png" width='24' />
+        <img id="bookmark_img" title='Bookmark this work' src="/images/<% if !@work.is_bookmarked_by(user.id)  %>un<% end %>filled_star.png" width='24' />
       </span>
       <span id="clap_work" class="nav--clap">
-        <img id="clap_img" alt='Applaude this work' src="/images/clap.png" width='28' />
+        <img id="clap_img" title='Applaude this work' src="/images/clap.png" width='28' />
       </span>
     <% end %>
     <span class="nav--viewcount"><img class="nav--viewcount image" src="/images/eye.png" height="20" /> <span id="navbar--viewcount">0</span> </span>

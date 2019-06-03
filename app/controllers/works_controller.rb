@@ -20,6 +20,10 @@ class WorksController < ApplicationController
     load_work
   end
 
+  def unbookmark
+    current_user.remove_bookmarked_work(params[:id])
+  end
+
   private
 
   def load_works
