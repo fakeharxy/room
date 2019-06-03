@@ -1,15 +1,13 @@
-<div class="card">
-  <div class="card-header <%= work.user == current_user ? "card-green" : '' %>">
-    <%= work.title %> by <%= work.user == current_user ? "You!" : work.user.username %>
-    <% if work.is_bookmarked_by(current_user.id) %>
-      <img id="remove_bookmark_<%= work.id %>" data-id="<%= work.id %>" class="float-right card-bookmark" title='Remove bookmark' src="/images/empty-bookmark.png" width='24' />
-    <% end %>
-  </div>
-  <div class="card-body">
-    <p class="card-p"><b> Genre: </b> <%= work.genre %></p>
-    <p class="card-p"><b> Claps: </b> <%= work.clap_count %> (<%= work.day_clap_count %>) </p>
-    <p class="card-p"><b> Worked on: </b> <%= time_ago_in_words work.updated_at %> ago </p>
-
-    <a href="/works/<%= work.id  %>" class="btn btn-info card-button">Go to page</a>
-  </div>
+<div class="card list-group">
+  <a href="/works/<%= work.id  %>" class="list-group-item <%= work.user == current_user ? "card-green" : '' %> list-group-item-action">
+    <span class="card--text"> <%= work.title %> </span>
+    <span class="card--text"> <b> | </b> by <b> <%= work.user == current_user ? "You!" : work.user.username %> </b></span>
+    <b> | </b> <span class="card--text"><%= work.genre %> </span> <b> | </b> Last Active: <i> <%= time_ago_in_words work.updated_at %> ago </i>
+  </a>
+    <span class="card--options">
+      <% if work.is_bookmarked_by(current_user.id) %>
+        <img id="remove_bookmark_<%= work.id %>" data-id="<%= work.id %>" class="card-bookmark" title='Remove bookmark' src="/images/empty-bookmark.png" width='24' />
+      <% end %>
+      <img  src="/images/clap.png" width='28' /> <%= work.day_clap_count %>
+    </span>
 </div>

@@ -1,6 +1,6 @@
 .card {
   margin: 10px auto !important;
-  width: 65%;
+  width: 80%;
 }
 
 .card-green {
@@ -12,8 +12,24 @@
   padding: 0.5rem !important;
 }
 
+.card-bookmark {
+  cursor: pointer;
+}
+
+.card--options {
+  position: absolute;
+  right: 30px;
+  top: 11px;
+  z-index: 500;
+}
+
 .card-body {
   padding: 0.5rem 1.2rem !important;
+}
+
+.card--text {
+  display: inline-block;
+  width: 150px !important;
 }
 
 .card-p {
