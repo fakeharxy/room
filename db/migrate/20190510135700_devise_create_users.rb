@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.boolean :writer, :default => true
       t.string :username
+      t.integer :clap_colour, :default => 0
       t.datetime :last_clap, :default => DateTime.now
 
       t.timestamps null: false

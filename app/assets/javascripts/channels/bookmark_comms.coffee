@@ -9,22 +9,22 @@ App.bookmark_comms = App.cable.subscriptions.create { channel: "BookmarkCommsCha
     if (data.view_count)
       $('#navbar--viewcount').html data.view_count
     if (data.clap)
-      App.bookmark_comms.show_clap()
+      App.bookmark_comms.show_clap(data.clap)
 
   mark: () ->
     @perform 'mark'
 
-  clap: () ->
-    @perform 'clap'
+  clap: (clapColour) ->
+    @perform 'clap', clapColour: clapColour
 
   pingViewCount: () ->
     $('#navbar--viewcount').html '0'
     @perform 'update_view_count'
     setTimeout(App.bookmark_comms.connected,60000)
 
-  show_clap: () ->
+  show_clap: (clapColour) ->
     clap_id = Math.floor(Math.random()*5000).toString()
-    $("body").prepend("<div id='clap#{clap_id}' class='clap--div'><img class='clap--img' width='35' src='/images/clap.png' /></div>")
+    $("body").prepend("<div id='clap#{clap_id}' class='clap--div'><img class='clap--img' width='35' src='/images/clap-#{clapColour}.png' /></div>")
     callback = -> unanimate(clap_id)
     setTimeout(callback,10000)
 
@@ -36,17 +36,21 @@ $(document).on 'click', '#bookmark_work', (event) ->
   document.getElementById("bookmark_img").src = "/images/filled_star.png";
 
 $(document).on 'click', '#clap_work', (event) ->
-  App.bookmark_comms.clap()
+  colour = event.target.getAttribute('data-id')
+  App.bookmark_comms.clap(colour)
   grey()
 
-ungrey = ->
-  document.getElementById("clap_img").src = "/images/clap.png";
+ungrey = (colour) ->
+  document.getElementById("clap_img").src = "/images/clap-#{colour}.png";
   document.getElementById("clap_img").style.cursor = "pointer"
 
 grey = ->
-  document.getElementById("clap_img").src = "/images/clap-grey.png"
-  document.getElementById("clap_img").style.cursor = "auto"
-  setTimeout(ungrey,10000)
+  event = document.getElementById("clap_img")
+  event.src = "/images/clap-grey.png"
+  event.style.cursor = "auto"
+  colour = event.getAttribute('data-id')
+  callback = -> ungrey(colour)
+  setTimeout(callback,10000)
 
 unanimate = (id) ->
   search = "clap" + id

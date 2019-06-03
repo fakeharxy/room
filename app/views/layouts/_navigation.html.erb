@@ -25,7 +25,7 @@
           <%= current_user.username  %>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Account Settings</a>
+          <a class="dropdown-item" href="/settings/<%= current_user.id %>">Account Settings</a>
           <div class="dropdown-divider"></div>
           <%= link_to('Logout', destroy_user_session_path, :method => 'delete', :class => "dropdown-item") %>
         </div>
@@ -39,7 +39,7 @@
         <img id="bookmark_img" title='Bookmark this work' src="/images/<% if !@work.is_bookmarked_by(user.id)  %>un<% end %>filled_star.png" width='24' />
       </span>
       <span id="clap_work" class="nav--clap">
-        <img id="clap_img" title='Applaude this work' src="/images/clap.png" width='28' />
+        <img id="clap_img" title='Applaud this work' data-id=<%= current_user.clap_colour %> src="/images/clap-<%= current_user.clap_colour %>.png" width='28' />
       </span>
     <% end %>
     <span class="nav--viewcount"><img class="nav--viewcount image" src="/images/eye.png" height="20" /> <span id="navbar--viewcount">0</span> </span>

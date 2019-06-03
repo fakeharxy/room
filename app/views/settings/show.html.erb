@@ -1,0 +1,14 @@
+
+<div class="settings">
+  <h1> <%= current_user.username %>'s settings </h1>
+
+  <h5> Applause colour </h5>
+  <ul class="settings--list list-group">
+    <% (0..5).each do |num| %>
+      <a href="/settings/users/<%= current_user.id %>/<%= num %>" class="settings--item list-group-item-action list-group-item <%= 'active' if current_user.clap_colour == num %>">
+        <img class="settings--img" src="/images/clap-<%= num %>.png" />
+      </a>
+    <% end %>
+
+
+</div>

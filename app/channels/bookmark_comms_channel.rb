@@ -11,8 +11,8 @@ class BookmarkCommsChannel < ApplicationCable::Channel
     current_user.bookmark_work(params[:work])
   end
 
-  def clap
-    send_clap if current_user.clap_work(params[:work])
+  def clap(data)
+    send_clap(data['clapColour']) if current_user.clap_work(params[:work])
   end
 
   def update_view_count
@@ -21,9 +21,9 @@ class BookmarkCommsChannel < ApplicationCable::Channel
                                  view_count: count
   end
 
-  def send_clap
+  def send_clap(clap_colour)
     ActionCable.server.broadcast "bookmark_comms_channel_#{params[:work]}",
-                                 clap: true
+                                 clap: clap_colour
   end
 
   def channels_count

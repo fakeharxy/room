@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 2019_05_27_083347) do
     t.datetime "remember_created_at"
     t.boolean "writer", default: true
     t.string "username"
-    t.datetime "last_clap", default: "2019-05-27 08:34:23"
+    t.integer "clap_colour", default: 0
+    t.datetime "last_clap", default: "2019-06-03 16:55:14"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

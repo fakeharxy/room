@@ -8,6 +8,6 @@
       <% if work.is_bookmarked_by(current_user.id) %>
         <img id="remove_bookmark_<%= work.id %>" data-id="<%= work.id %>" class="card-bookmark" title='Remove bookmark' src="/images/empty-bookmark.png" width='24' />
       <% end %>
-      <img  src="/images/clap.png" width='28' /> <%= work.day_clap_count %>
+      <img  src="/images/clap-0.png" width='28' /> <%= work.day_clap_count %>
     </span>
 </div>
