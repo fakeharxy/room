@@ -7,7 +7,8 @@ class HomeController < ApplicationController
     load_active if params[:type] == 'active' || params[:type].nil?
     load_popular_works if params[:type] == 'popular'
     load_bookmarks if params[:type] == 'bookmark'
-    load_search if params[:type] == 'search'
+    load_genre_search if params[:type] == 'search'
+    load_user_search if params[:type] == 'user'
   end
 
   private
@@ -28,12 +29,20 @@ class HomeController < ApplicationController
     @bookmarked_works ||= current_user.bookmarked_works
   end
 
-  def load_search
+  def load_genre_search
     if params[:criteria] && params[:criteria] != ''
-      @search = params[:criteria]
-      @results = Work.results(params[:criteria])
+      @genre_search = params[:criteria]
+      @results = Work.genre_results(params[:criteria])
     end
-    @search ||= 'Search'
+    @genre_search ||= 'Search'
+  end
+
+  def load_user_search
+    if params[:criteria] && params[:criteria] != ''
+      @user_search = params[:criteria]
+      @users = User.user_results(params[:criteria])
+    end
+    @user_search ||= 'Search'
   end
 
   def work_scope

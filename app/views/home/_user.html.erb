@@ -1,0 +1,23 @@
+<div class="card card--user list-group">
+  <a href="/users/<%= user.id  %>" class="list-group-item list-group-item-action">
+    <div class="users--stats">
+      <i class="card--icon fas fa-user"> </i>
+      <%= user.username %>
+      <span class="float-right">
+        <% if user.works != [] %>
+          <b>Claps:</b>
+          <%= user.clap_count %>
+          <b>|</b>
+          <b>Words:</b>
+          <%= user.word_count %>
+          <b>|</b>
+          <b>Last time active:</b>
+          <i><%= time_ago_in_words(user.last_active) %> ago</i>
+        <% else %>
+          This user hasn't written anything yet!
+        <% end %>
+      </span>
+
+    </div>
+  </a>
+</div>

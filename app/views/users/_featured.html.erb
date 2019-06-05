@@ -1,0 +1,13 @@
+<div class="card on-user-screen list-group">
+  <a href="/works/<%= work.id  %>" class="list-group-item list-group-item-action">
+    <span class="card--text"> <%= work.title %> </span>
+    <b> | </b> <span class="card--text"><%= work.genre %> </span>
+  <% if type == "best" %>
+    <span class="card--options">
+      <img  src="/images/clap-0.png" width='28' /> <span class="card--count-text"> <%= work.day_clap_count %> <span class="faded-text">(<%= work.clap_count %>)</span>
+      </span>
+    <% else %>
+      <span class="faded-text"><i><%= time_ago_in_words(work.updated_at) %> </i> ago</span>
+    <% end %>
+  </a>
+</div>

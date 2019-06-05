@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe Work, type: :model do
+RSpec.describe User, type: :model do
   let!(:user) { User.create(username: 'papercloud', email: 'p@h.co', password: 'qwerty1', password_confirmation: 'qwerty1', writer: true) }
-  let!(:work1) { Work.create(title: 'Hello', genre: 'bob', user_id: user.id) }
-  let!(:work2) { Work.create(title: 'Hello', genre: 'bob', user_id: user.id, updated_at: 1.day.ago) }
+  let!(:work1) { Work.create(title: 'Hello', body: 'well well well well, well well', genre: 'bob', user_id: user.id) }
+  let!(:work2) { Work.create(title: 'Hello', body: 'indeed', genre: 'bob', user_id: user.id, updated_at: 1.day.ago) }
 
   it 'can bookmark a work' do
     user.bookmark_work(work1.id)
@@ -31,4 +31,16 @@ RSpec.describe Work, type: :model do
     expect(user.clap_work(work1.id)).to eq(false)
   end
 
+  it 'returns all time word count' do
+    expect(user.word_count).to eq(7)
+  end
+
+  it 'returns all time clap count' do
+    user.clap_work(work1.id)
+    expect(user.clap_count).to eq(1)
+  end
+
+  it 'returns last active' do
+    expect(user.last_active).to eq(work1.updated_at)
+  end
 end

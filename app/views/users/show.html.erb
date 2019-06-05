@@ -1,1 +1,32 @@
-hello
+<h1 class="users--title"> about <%= @user.username  %> </h1>
+<% if current_user.id == @user.id %>
+  <ul class="users--settings list-group list-group-horizontal">
+    <% (0..8).each do |num| %>
+      <a href="/users/<%= current_user.id %>/<%= num %>" class="users--settings--item list-group-item-action list-group-item <%= 'active' if current_user.clap_colour == num %>">
+        <img class="users--settings--img" src="/images/clap-<%= num %>.png" />
+      </a>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @user.works != [] %>
+  <p class="users--stats"><b>words:</b> <%= @user.word_count %> <b>|</b> <b>claps:</b> <%= @user.clap_count %> <b>|</b> <b>last time active:</b> <i><%= time_ago_in_words(@user.last_active) %> ago</i></p>
+  <div class="users--row row">
+    <div class="col-sm-6">
+      <h5> <i class="card--icon fas fa-crown"> </i> Best evah </h5>
+      <%= render partial: 'users/featured', locals: { work: @best, type: 'best' } %>
+    </div>
+    <div class="col-sm-6">
+      <h5> <i class="card--icon far fa-clock"> </i> Most recent </h5>
+      <%= render partial: 'users/featured', locals: { work: @recent, type: 'recent' } %>
+    </div>
+  </div>
+  <div class="users--all-works">
+    <h5 class="is-title"> <i class="card--icon fas fa-book"> </i> All Time </h5>
+    <% @all.each do |work| %>
+      <%= render partial: 'home/work', locals: { work: work } %>
+    <% end %>
+  <% else %>
+    <p class="faded-text"> Doesn't look like this user has written anything yet!</p>
+  <% end %>
+  </div>

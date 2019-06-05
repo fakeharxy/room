@@ -1,5 +1,8 @@
 <h1 class="heading"> <%= current_user.username %>'s projects </h1>
-<% @works.each do |work|  %>
-  <%= render :partial => 'works/work', :locals => {work: work} %>
+<% if @works != [] %>
+  <% @works.each do |work|  %>
+    <%= render :partial => 'home/work', :locals => {work: work} %>
+  <% end %>
+<% else %>
+  <p class="faded-text">no works started yet! Why not <a href="/works/new">start one<a>?</p>
 <% end  %>
-

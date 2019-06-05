@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, :email, uniqueness: { message: 'is already in use, sorry!' }
+  validates :username, :email, uniqueness: { message: 'is already in use, sorry!' }, length: { minimum: 2, maximum: 12 }
 
   has_many :works
   has_many :bookmarks
@@ -29,6 +29,11 @@ class User < ApplicationRecord
     can_clap? ? perform_clap(work_id) : false
   end
 
+  def self.user_results(criteria)
+    User.where('lower(username) LIKE ?', "%#{criteria.downcase}%").all.sort_by(&:updated_at).reverse!
+  end
+
+
   def perform_clap(work_id)
     Clap.create!(user_id: id, work_id: work_id)
     reset_claps
@@ -41,5 +46,25 @@ class User < ApplicationRecord
 
   def remove_bookmarked_work(work_id)
     Bookmark.where(user_id: id).where(work_id: work_id).destroy_all
+  end
+
+  def word_count
+    count = 0
+    works.each do |work|
+      count += work.body.split.size
+    end
+    count
+  end
+
+  def clap_count
+    count = 0
+    works.each do |work|
+      count += work.clap_count
+    end
+    count
+  end
+
+  def last_active
+    works.top_10_recent.first.updated_at
   end
 end

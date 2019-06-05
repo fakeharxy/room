@@ -1,4 +1,4 @@
-
+<h5>start a <a href="/works/new">new project</a>, continue a <a href="/works">project</a>, or find something fun to read below</h5>
 <div class="locater">
   <ul class="locater--list list-group list-group-horizontal">
     <a class="locater--link" href="/home/active">
@@ -11,7 +11,10 @@
       <li class="locater--heading list-group-item <%= 'active' if @bookmarked_works %>">Bookmarks</li>
     </a>
     <a class="locater--link" href="/home/search">
-      <li class="locater--heading list-group-item <%= 'active' if @search  %>">Search by Genre</li>
+      <li class="locater--heading list-group-item <%= 'active' if @genre_search  %>">Genre</li>
+    </a>
+    <a class="locater--link" href="/home/user">
+      <li class="locater--heading list-group-item <%= 'active' if @user_search  %>">Username</li>
     </a>
   </ul>
 </div>
@@ -45,11 +48,20 @@
   <% end %>
 <% end %>
 
-<% if @search  %>
-  <%= render :partial => 'home/search', :locals => {search: @search} %>
+<% if @genre_search  %>
+  <%= render :partial => 'home/search', :locals => {search: @genre_search} %>
   <% if @results %>
     <% @results.each do |work|  %>
       <%= render :partial => 'home/work', :locals => {work: work} %>
+    <% end  %>
+  <% end %>
+<% end %>
+
+<% if @user_search  %>
+  <%= render :partial => 'home/search', :locals => {search: @user_search} %>
+  <% if @users %>
+    <% @users.each do |user|  %>
+      <%= render :partial => 'home/user', :locals => {user: user} %>
     <% end  %>
   <% end %>
 <% end %>

@@ -27,7 +27,7 @@ class WorksController < ApplicationController
   private
 
   def load_works
-    @works ||= work_scope.where(user_id: current_user.id).to_a
+    @works ||= work_scope.where(user_id: current_user.id).sort_by(&:updated_at).reverse!
   end
 
   def load_work

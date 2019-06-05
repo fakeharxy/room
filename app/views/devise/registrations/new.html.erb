@@ -10,13 +10,13 @@
     </div>
   <% end %>
     <div class="field">
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "User Name" %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "User Name (2-12 characters)" %>
     </div>
     <div class="field">
       <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email Address" %>
     </div>
     <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password (minimum 6 characters)" %>
     </div>
     <div class="field">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password" %>

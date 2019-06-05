@@ -19,7 +19,7 @@ class Work < ApplicationRecord
     Work.joins(:claps).where('claps.created_at > ?', 1.day.ago).uniq.last(10).sort_by(&:day_clap_count).reverse!
   end
 
-  def self.results(criteria)
+  def self.genre_results(criteria)
     Work.where('lower(genre) LIKE ?', "%#{criteria.downcase}%").all.sort_by(&:day_clap_count).reverse!
   end
 

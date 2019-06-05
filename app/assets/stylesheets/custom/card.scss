@@ -3,6 +3,10 @@
   width: 80%;
 }
 
+.on-user-screen {
+  width: 100%;
+}
+
 .card-green {
   background: #e0f5e0 !important;
   border: 2px dashed green !important;
@@ -29,7 +33,16 @@
 
 .card--text {
   display: inline-block;
-  width: 150px !important;
+  width: 155px !important;
+}
+
+.card--icon {
+  margin-right: 10px;
+}
+
+.card--count-text {
+  padding-top: 2px;
+  display: inline-block;
 }
 
 .card-p {

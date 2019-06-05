@@ -36,9 +36,10 @@ $(document).on 'click', '#bookmark_work', (event) ->
   document.getElementById("bookmark_img").src = "/images/filled_star.png";
 
 $(document).on 'click', '#clap_work', (event) ->
-  colour = event.target.getAttribute('data-id')
-  App.bookmark_comms.clap(colour)
-  grey()
+  if document.getElementById("clap_img").style.cursor == "pointer"
+    colour = event.target.getAttribute('data-id')
+    App.bookmark_comms.clap(colour)
+    grey()
 
 ungrey = (colour) ->
   document.getElementById("clap_img").src = "/images/clap-#{colour}.png";

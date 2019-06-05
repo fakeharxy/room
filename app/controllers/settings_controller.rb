@@ -5,8 +5,6 @@ class SettingsController < ApplicationController
 
   def update
     load_user
-    @user.update(clap_colour: params[:colour])
-    redirect_to :action => "show"
   end
 
   private

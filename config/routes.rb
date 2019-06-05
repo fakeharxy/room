@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'home/:type', to: 'home#index'
   post 'home/:type', to: 'home#index'
   post 'unbookmark/:id', to: 'works#unbookmark'
-  get 'settings/users/:id/:colour', to: 'settings#update'
+  get '/users/:id/:colour', to: 'users#update'
 end
