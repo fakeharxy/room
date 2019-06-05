@@ -6,7 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, :email, uniqueness: { message: 'is already in use, sorry!' }, length: { minimum: 2, maximum: 12 }
+  validates :username, uniqueness: { message: 'is already in use, sorry!' }, length: { minimum: 2, maximum: 12 }
+  validates :email, uniqueness: { message: 'is already in use, sorry!' }
 
   has_many :works
   has_many :bookmarks

@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-User.create(username: "papercloud", email: "p@h.co", password: "qwerty1", password_confirmation: "qwerty1", writer: true)
+User.create(username: "harxy", email: "p@h.co", password: "qwerty1", password_confirmation: "qwerty1", writer: true)
 
 User.create(username: "test", email: "test@test.com", password: "qwerty1", password_confirmation: "qwerty1", writer: false)
