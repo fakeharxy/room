@@ -7,7 +7,7 @@
       <img  src="/images/clap-0.png" width='28' /> <span class="card--count-text"> <%= work.day_clap_count %> <span class="faded-text">(<%= work.clap_count %>)</span>
       </span>
     <% else %>
-      <span class="faded-text"><i><%= time_ago_in_words(work.updated_at) %> </i> ago</span>
+      <span class="faded-text"><i><%= time_ago_in_words(work.updated_at) %></i> </span>
     <% end %>
   </a>
 </div>

@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <p class="card-p"><b> Genre: </b> <%= work.genre %></p>
-    <p class="card-p"><b> Worked on: </b> <%= time_ago_in_words work.updated_at %> ago </p>
+    <p class="card-p"><b> Worked on: </b> <%= time_ago_in_words work.updated_at %> </p>
 
     <a href="/works/<%= work.id  %>" class="btn btn-primary card-button">Work on it...</a>
   </div>

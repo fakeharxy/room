@@ -5,14 +5,14 @@
       <%= user.username %>
       <span class="float-right">
         <% if user.works != [] %>
-          <b>Claps:</b>
+          <b>claps:</b>
           <%= user.clap_count %>
           <b>|</b>
-          <b>Words:</b>
+          <b>words:</b>
           <%= user.word_count %>
           <b>|</b>
-          <b>Last time active:</b>
-          <i><%= time_ago_in_words(user.last_active) %> ago</i>
+          <b>active:</b>
+          <i><%= time_ago_in_words(user.last_active) %> </i>
         <% else %>
           This user hasn't written anything yet!
         <% end %>
