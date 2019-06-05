@@ -25,6 +25,18 @@ body, .container {
   margin: 40px;
 }
 
+trix-toolbar .button_group {
+  button.code {
+    display: none;
+  }
+  button.quote {
+    display: none;
+  }
+  button.link {
+    display: none;
+  }
+}
+
 .faded-text {
   opacity: 0.5;
 }
