@@ -11,10 +11,10 @@ class WorkCommsChannel < ApplicationCable::Channel
 
   def speak(data)
     @work = Work.find_by_id(params[:work])
-    message = data['message'].gsub('~', '<span id="scrollPos"/>')
-    @work.update(body: data['message'])
+    message = data['message']
+    @work.update(body: message)
     ActionCable.server.broadcast "work_comms_channel_#{params[:work]}",
-      message: message.html_safe
+      message: message
   end
 
   def markdown_to_html(text)
