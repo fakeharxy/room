@@ -1,7 +1,7 @@
 <br />
 <% if current_user != @work.user %>
   <div class="message-content">
-    <%= @work.body %>
+    <%= @work.body.html_safe %>
   </div>
 <% end %>
 

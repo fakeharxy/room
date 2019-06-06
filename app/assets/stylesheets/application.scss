@@ -21,7 +21,7 @@ body, .container {
 }
 
 .container {
-  padding-top: 37px;
+  padding-top: 20px;
   margin: 40px;
 }
 
@@ -35,6 +35,12 @@ trix-toolbar .button_group {
   button.link {
     display: none;
   }
+}
+
+trix-editor {
+  height: 1000px !important;
+  max-height: 1000px !important;
+  overflow-y: hidden;
 }
 
 .faded-text {
