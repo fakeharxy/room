@@ -16,3 +16,5 @@
 //= require trix
 //= require_tree .
 
+Trix.config.blockAttributes.heading1.tagName = "h3";
+
