@@ -37,7 +37,34 @@ trix-toolbar .button_group {
   button.link {
     display: none;
   }
+
+  button.decrease {
+    display: none;
+  }
+
+  button.increase {
+    display: none;
+  }
 }
+
+.history_tools {
+  position: fixed;
+  right: 170px;
+  top: 85px;
+}
+
+.block_tools {
+  position: fixed;
+  left: 140px;
+  top: 125px;
+}
+
+.text_tools {
+  position: fixed;
+  left: 140px;
+  top: 85px;
+}
+
 
 #scrollPos {
   display: inline-flex;

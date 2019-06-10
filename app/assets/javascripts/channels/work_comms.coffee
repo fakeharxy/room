@@ -27,3 +27,7 @@ $(document).on 'keyup', '#trix-editor',  (event) ->
     element.editor.insertString("~")
     App.work_comms.speak(element.value)
     element.editor.deleteInDirection("backward")
+
+$(document).on 'click', '#trix-toolbar-1',  (event) ->
+  element = document.querySelector("trix-editor")
+  App.work_comms.speak(element.value)
