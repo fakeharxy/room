@@ -8,8 +8,10 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
   received: (data) ->
     if (data.message && !data.message.blank?)
       $('.message-content').html data.message
+      if $('#scrollCheck').is(":checked")
+        App.work_comms.scrollToMiddle("#scrollPos")
 
-  speak: (message, cursorPosition) ->
+  speak: (message) ->
     @perform 'speak', message: message
 
   scrollToMiddle: (id) ->
@@ -18,6 +20,10 @@ App.work_comms = App.cable.subscriptions.create { channel: "WorkCommsChannel", w
     y = elem_position - window_height/2;
     window.scrollTo(0,y);
 
-$(document).on 'trix-change', (event) ->
+$(document).on 'keyup', '#trix-editor',  (event) ->
   element = document.querySelector("trix-editor")
-  App.work_comms.speak(element.value)
+  range = element.editor.getSelectedRange()
+  if range[0] == range[1]
+    element.editor.insertString("~")
+    App.work_comms.speak(element.value)
+    element.editor.deleteInDirection("backward")

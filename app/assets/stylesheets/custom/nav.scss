@@ -20,9 +20,19 @@
 
 .nav--viewcount {
   position: absolute;
-  right: -120px;
-  top: 5px;
+  left: -60px;
+  top: 6px;
+}
 
+.nav--scroll {
+  position: absolute;
+  right: -96px;
+  top: 5px;
+}
+
+.nav--pin {
+  right: -18px;
+  top: 2px;
 }
 
 .nav--clap {

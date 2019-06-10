@@ -1,11 +1,11 @@
 <br />
 <% if current_user != @work.user %>
   <div class="message-content">
-    <%= @work.body.html_safe %>
+    <%= @work.body.gsub('~', '').html_safe %>
   </div>
 <% end %>
 
 <% if current_user == @work.user %>
-    <input id="message_content" type="hidden" value="<%= @work.body %>" class="textbox">
+    <input id="message_content" type="hidden" value="<%= @work.body.gsub('~', '') %>" class="textbox">
     <trix-editor input="message_content" id="trix-editor"></trix-editor>
 <% end %>
