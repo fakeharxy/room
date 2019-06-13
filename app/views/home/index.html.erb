@@ -2,19 +2,26 @@
 <div class="locater">
   <ul class="locater--list list-group list-group-horizontal">
     <a class="locater--link" href="/home/active">
-      <li class="locater--heading list-group-item <%= 'active' if @active %>">Active</li>
+      <li class="locater--heading list-group-item <%= 'active' if @active %>">active</li>
     </a>
     <a class="locater--link" href="/home/popular">
-      <li class="locater--heading list-group-item <%= 'active' if @popular %>">Popular</li>
+      <li class="locater--heading list-group-item <%= 'active' if @popular %>">popular</li>
     </a>
     <a class="locater--link" href="/home/bookmark">
-      <li class="locater--heading list-group-item <%= 'active' if @bookmarked_works %>">Bookmarks</li>
+      <li class="locater--heading list-group-item <%= 'active' if @bookmarked_works %>">bookmarks</li>
+    </a>
+    <a class="locater--link" href="/home/following">
+      <li class="locater--heading list-group-item <%= 'active' if @following %>">following</li>
     </a>
     <a class="locater--link" href="/home/search">
-      <li class="locater--heading list-group-item <%= 'active' if @genre_search  %>">Genre</li>
+      <li class="locater--heading list-group-item <%= 'active' if @genre_search  %>">
+        <span class="fas fa-search"></span>
+        genre</li>
     </a>
     <a class="locater--link" href="/home/user">
-      <li class="locater--heading list-group-item <%= 'active' if @user_search  %>">Username</li>
+      <li class="locater--heading list-group-item <%= 'active' if @user_search  %>">
+        <span class="fas fa-search"></span>
+        username</li>
     </a>
   </ul>
 </div>
@@ -46,6 +53,15 @@
   <% if @bookmarked_works == [] %>
     <%= render :partial => 'home/empty', :locals => {type: "bookmark"} %>
   <% end %>
+<% end %>
+
+<% if @following  %>
+  <% @following.each do |work|  %>
+    <%= render :partial => 'home/work', :locals => {work: work} %>
+  <% end %>
+<% end %>
+<% if @following == [] %>
+  <%= render :partial => 'home/empty', :locals => {type: "following"} %>
 <% end %>
 
 <% if @genre_search  %>

@@ -4,6 +4,12 @@
     <p class="empty-group--text"> You haven't bookmarked any projects yet! </p>
     <p class="empty-group--text"> Use the star icon on any project. </p>
   </div>
+<% elsif type = "following" %>
+  <div class="empty-group">
+    <img class="empty-group--image" src="/images/no-content.png" />
+    <p class="empty-group--text"> No one you're following has written anything. </p>
+    <p class="empty-group--text"> Maybe follow more people? </p>
+  </div>
 <% else %>
   <div class="empty-group">
     <img class="empty-group--image" src="/images/no-content.png" />

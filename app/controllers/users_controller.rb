@@ -15,7 +15,23 @@ class UsersController < ApplicationController
     redirect_to action: 'show'
   end
 
+  def follow
+    load_user
+    current_user.toggle_follow(@user)
+    redirect_to action: 'show'
+  end
+
+  def message
+    load_message
+    load_user
+  end
+
+
   private
+
+  def load_message
+    @message ||= Message.new
+  end
 
   def load_user
     @user ||= user_scope.find(params[:id])

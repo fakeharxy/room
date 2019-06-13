@@ -1,0 +1,8 @@
+<h1 class="users--title"> send message to <%= @user.username  %> </h1>
+<br />
+<%= form_for @message do |f| %>
+  <%= f.text_area :message, class: "users--message form-control", placeholder: "Say something nice... or at least constructive!", rows: '4' %>
+  <%= f.hidden_field :to_id, value: @user.id %>
+  <%= f.submit "Send", class: "btn btn-success" %>
+<% end %>
+

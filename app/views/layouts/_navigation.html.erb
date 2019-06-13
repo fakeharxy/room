@@ -7,7 +7,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/messages">
+          messages
+          <% if current_user.has_unread %>
+            <badge class="badge badge-info nav--unread"> </badge>
+          <% end %>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/users/<%= current_user.id %>">
@@ -28,10 +36,10 @@
         <span id="clap_work" class="nav--clap">
           <img id="clap_img" title='Applaud this work' data-id=<%= current_user.clap_colour %> src="/images/clap-<%= current_user.clap_colour %>.png" width='28' />
         </span>
-      <span class="nav--scroll" title='Follow newly entered text'>
-        <i class="fas fa-map-pin"></i>
-        <input type="checkbox" class="form-check-input nav--pin" id="scrollCheck" checked>
-      </span>
+        <span class="nav--scroll" title='Follow newly entered text'>
+          <i class="fas fa-map-pin"></i>
+          <input type="checkbox" class="form-check-input nav--pin" id="scrollCheck" checked>
+        </span>
       <% end %>
       <span class="nav--viewcount" title='Current view-count'><img class="nav--viewcount image" src="/images/eye.png" height="20" /> <span id="navbar--viewcount">0</span> </span>
     </span>

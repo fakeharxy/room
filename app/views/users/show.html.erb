@@ -1,4 +1,10 @@
-<h1 class="users--title"> about <%= @user.username  %> </h1>
+<h1 class="users--title"> about <%= @user.username  %>
+<% if current_user.id != @user.id %>
+  <a href="/users/<%= @user.id %>/follow" class="users--follow-button"><img title="<%= 'un' if current_user.following?(@user)  %>follow user" class="users--follow-img" src='/images/<%= 'un' if current_user.following?(@user) %>follow.png'></a>
+  <a href="/users/<%= @user.id %>/message" class="users--message-button"><i class="far fa-envelope fa-xs"></i></a>
+<% end %>
+</h1>
+
 <% if current_user.id == @user.id %>
   <ul class="users--settings list-group list-group-horizontal">
     <% (0..9).each do |num| %>
@@ -9,8 +15,16 @@
   </ul>
 <% end %>
 
+<% if current_user.following?(@user) %>
+  <badge class="users--badge badge badge-success"> Following </badge>
+<% end %>
+
 <% if @user.works != [] %>
-  <p class="users--stats"><b>words:</b> <%= @user.word_count %> <b>|</b> <b>claps:</b> <%= @user.clap_count %> <b>|</b> <b>active:</b> <i><%= time_ago_in_words(@user.last_active) %> </i></p>
+  <p class="users--stats">
+<b>words:</b> <%= @user.word_count %>
+<b>|</b> <b>claps:</b> <%= @user.clap_count %>
+<b>|</b> <b>followers:</b> <%= @user.followers_count %>
+<b>|</b> <b>active:</b> <i><%= time_ago_in_words(@user.last_active) %> </i></p>
   <div class="users--row row">
     <div class="col-sm-6">
       <h5> <i class="card--icon fas fa-crown"> </i> Best evah </h5>

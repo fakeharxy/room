@@ -14,7 +14,7 @@ class WorkCommsChannel < ApplicationCable::Channel
     @work.update(body: data['message'])
     message = data['message'].gsub('~', '<span id="scrollPos"/>')
     ActionCable.server.broadcast "work_comms_channel_#{params[:work]}",
-      message: message
+                                 message: message
   end
 
   def markdown_to_html(text)

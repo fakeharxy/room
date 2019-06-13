@@ -13,6 +13,16 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :claps
   has_many :bookmarked_works, through: :bookmarks, source: :work
+  has_many :active_relationships, class_name: 'Relationship',
+                                  foreign_key: 'follower_id',
+                                  dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship',
+                                   foreign_key: 'followed_id',
+                                   dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships
+  has_many :received_messages, foreign_key: 'to_id', class_name: 'Message'
+  has_many :sent_messages, foreign_key: 'from_id', class_name: 'Message'
 
   def writer?
     writer
@@ -34,6 +44,13 @@ class User < ApplicationRecord
     User.where('lower(username) LIKE ?', "%#{criteria.downcase}%").all.sort_by(&:updated_at).reverse!
   end
 
+  def following_works
+    works = []
+    self.following.each do |user|
+      works << user.last_active_work
+    end
+    works.sort_by(&:updated_at).reverse!
+  end
 
   def perform_clap(work_id)
     Clap.create!(user_id: id, work_id: work_id)
@@ -47,6 +64,38 @@ class User < ApplicationRecord
 
   def remove_bookmarked_work(work_id)
     Bookmark.where(user_id: id).where(work_id: work_id).destroy_all
+  end
+
+  def has_unread
+    result = false
+    received_messages.each do |message|
+      result = true if !message.read
+    end
+    result
+  end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  def followed_by?(other_user)
+    followers.include?(other_user)
+  end
+
+  def followers_count
+    followers.count
+  end
+
+  def toggle_follow(other_user)
+    following?(other_user) ? unfollow(other_user) : follow(other_user)
   end
 
   def word_count
@@ -67,5 +116,9 @@ class User < ApplicationRecord
 
   def last_active
     works.top_10_recent.first.updated_at
+  end
+
+  def last_active_work
+    works.top_10_recent.first
   end
 end

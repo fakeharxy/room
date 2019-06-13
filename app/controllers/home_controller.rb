@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     load_popular_works if params[:type] == 'popular'
     load_bookmarks if params[:type] == 'bookmark'
     load_genre_search if params[:type] == 'search'
+    load_following if params[:type] == 'following'
     load_user_search if params[:type] == 'user'
   end
 
@@ -27,6 +28,10 @@ class HomeController < ApplicationController
 
   def load_bookmarks
     @bookmarked_works ||= current_user.bookmarked_works
+  end
+
+  def load_following
+    @following ||= current_user.following_works
   end
 
   def load_genre_search

@@ -1,5 +1,23 @@
-.message-content {
-  padding: 20px 15px 300px;
-  width: 100%;
-  margin-bottom: 100px;
+.message--card {
+  width: 60% !important;
 }
+
+.message--unread {
+  height: 14px;
+  width: 14px;
+  border-radius: 100%;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+}
+
+.message--badge {
+  position: absolute;
+  right: 30px;
+  top: 11px;
+}
+
+.message--options {
+  float: right;
+}
+

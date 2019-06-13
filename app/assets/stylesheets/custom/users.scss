@@ -11,7 +11,7 @@
 }
 
 .users--title {
-  margin-bottom: 2px !important;
+  margin-bottom: 5px !important;
 }
 
 .users--stats {
@@ -20,6 +20,23 @@
 
 .users--row {
   margin: 25px;
+}
+
+.users--message {
+  resize: none;
+  margin-bottom: 15px;
+}
+
+.users--follow-img {
+  width: 40px;
+  margin-bottom: 9px;
+  margin-left: 9px;
+}
+
+.users--badge {
+  position: absolute !important;
+  display: inline !important;
+  margin-top: -15px !important;
 }
 
 .users--settings {
