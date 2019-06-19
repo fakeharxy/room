@@ -1,4 +1,4 @@
- <% if (current_user == @work.user || @work.show_prompt) && (@work.prompt != '' || @work.prompt != nil) %>
+<% if (current_user == @work.user || @work.show_prompt) && @work.prompt != '' %>
    <p class="faded-text"> <i class="far fa-lightbulb"></i> <%= @work.prompt %> </p>
 <% end %>
 <% if current_user != @work.user %>

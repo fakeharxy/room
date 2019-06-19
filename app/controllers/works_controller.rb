@@ -5,6 +5,9 @@ class WorksController < ApplicationController
 
   def index
     load_works
+    Work.each do |work|
+      work.update(prompt: '')
+    end
   end
 
   def new
