@@ -22,7 +22,8 @@ fiction_array = [ "An old woman/man wakes up in a land populated entirely by dog
 "Something in your house comes alive. What does it think of you?",
 "You're a trained Lion-tamer. But one day, Rex, your lion, seems off and more angry than usual.",
 "The police seem to be chasing you, which is odd, because you just got home from a vacation and you didn't commit any crimes...",
-"You accidently consume a strong batch of a mysterious potion. Who was the owner? What might it do?"
+"You accidently consume a strong batch of a mysterious potion. Who was the owner? What might it do?",
+"You or a character has been in bed sick for a week. One day, you notice the internet has had absolutely no new content added in the last 24 hours."
 
 ]
 
@@ -38,7 +39,9 @@ nonfiction_array = [ "Write about the scariest thing that ever happened while yo
 "Write about a time you were let down by someone important.",
 "Describe the best view you've ever seen. Or the worst.",
 "Are you scared of something unusual? What about it is so creepy?",
-"What are the best things about your partner/best friend? What are the worst?"
+"What are the best things about your partner/best friend? What are the worst?",
+"Write a letter to someone who deserves it. Why do they deserve it? Is it positive or negative?",
+"Who do you look up to? Do you objectively think they deserve it? What qualities do they have you admire?"
 
 
 ]
