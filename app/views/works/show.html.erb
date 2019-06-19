@@ -1,4 +1,6 @@
-<br />
+ <% if (current_user == @work.user || @work.show_prompt) && (@work.prompt != '') %>
+   <p class="faded-text"> <i class="far fa-lightbulb"></i> <%= @work.prompt %> </p>
+<% end %>
 <% if current_user != @work.user %>
   <div class="message-content">
     <%= @work.body.gsub('~', '').html_safe %>
@@ -6,6 +8,6 @@
 <% end %>
 
 <% if current_user == @work.user %>
-    <input id="message_content" type="hidden" value="<%= @work.body.gsub('~', '') %>" class="textbox">
-    <trix-editor input="message_content" id="trix-editor"></trix-editor>
+  <input id="message_content" type="hidden" value="<%= @work.body.gsub('~', '') %>" class="textbox">
+  <trix-editor input="message_content" id="trix-editor"></trix-editor>
 <% end %>

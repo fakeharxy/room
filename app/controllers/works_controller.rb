@@ -8,7 +8,8 @@ class WorksController < ApplicationController
   end
 
   def new
-    build_work
+    @work ||= work_scope.build
+    @work.user = current_user
   end
 
   def create
@@ -37,6 +38,9 @@ class WorksController < ApplicationController
   def build_work
     @work ||= work_scope.build
     @work.attributes = work_params
+    if work_params['show_prompt'] != 'on'
+      @work.update(show_prompt: false)
+    end
     @work.user = current_user
   end
 
@@ -46,7 +50,7 @@ class WorksController < ApplicationController
 
   def work_params
     work_params = params[:work]
-    work_params ? work_params.permit(:title, :genre) : {}
+    work_params ? work_params.permit(:title, :genre, :prompt, :show_prompt) : {}
   end
 
   def work_scope

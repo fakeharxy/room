@@ -7,8 +7,39 @@
       <a href="#" class="close" data-dismiss="alert">&#215;</a>
     </div>
   <% end %>
-  <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title.", maxlength: 20 %>
-  <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "A rough genre. Sci-fi? Free write? Non-fiction?", maxlength: 20 %>
+  <div class="input-group">
+    <textarea name="work[prompt]" type="text" id="prompt_input" rows='3' class="form-control form--text-field" placeholder="Add a Writing Prompt (Optional)" aria-describedby="button-addon4"></textarea>
+    <div class="input-group " id="button-addon4">
+      <button id="fiction_generate" class="btn btn-outline-secondary form--text-field form--group-button" type="button"><i class="fas fa-hat-wizard"></i></button>
+      <button id="nonfiction_generate"  class="btn btn-outline-secondary form--text-field form--group-button" type="button"><i class="far fa-newspaper"></i></button>
+      <button type="button" data-toggle="modal" data-target="#prompt_modal" class="form--invisible-button"> <img src="/images/questionmark.png" id="prompt_question" class="form--text-field form--question-image"></button>
+    </div>
+  </div>
+  <div class="form-group form-check">
+    <input name="work[show_prompt]" type="checkbox" class="form-check-input" id="prompt_show">
+    <label class="form-check-label" for="exampleCheck1">Display Prompt to viewers?</label>
+  </div>
+  <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title your work.", maxlength: 20 %>
+  <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "A rough genre. Sci-fi? Comedy? Free-write?", maxlength: 20 %>
   <%= f.submit "Create", class: "btn btn-lg btn-success button" %>
 <% end %>
 
+<div class="modal" id="prompt_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">About Writing Prompts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> A writing prompt is a little helping hand to get you started with your writing.</p>
+        <p> If you want a writing prompt, you can click the buttons to generate a <i class="fas fa-hat-wizard"></i> fictional prompt or a <i class="far fa-newspaper"></i> non-fictional prompt. Alternatively there are loads of good suggestions on <a target="_BLANK" href="https://www.reddit.com/r/WritingPrompts/"> reddit</a>.</p>
+        <p> Note that you can edit your prompt after you've generated it... use them as a very rough guideline! Just be inspired, don't stick rigidly to them. Or do, it's up to you. </p>
+        <p> Also remember that writing prompts, particularly the non-fiction ones, are meant to provoke or challenge you. They may not be comfortable. Just click the button again for another one.</p>
+        <p> Using the checkbox below, you can choose whether the writing prompt is seen by people watching as you write... this is just a personal preference. </p>
+      </div>
+    </div>
+  </div>
+</div>

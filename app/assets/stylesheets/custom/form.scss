@@ -5,4 +5,23 @@
 
 .form--text-field {
   margin: 3px 0px;
+  resize: none;
+}
+
+.form--group-button {
+  margin: 3px;
+}
+
+.form--question-image {
+  height: 22px;
+  margin-top: 6px;
+  margin-left: 3px;
+}
+
+.form--invisible-button {
+  border: none;
+}
+
+input:focus, button {
+    outline: none !important;
 }
