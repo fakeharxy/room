@@ -15,8 +15,14 @@ fiction_array = [ "An old woman/man wakes up in a land populated entirely by dog
 "A young person is having a drink in a bar... and leaves to find the city's central river has run dry while they were drinking.",
 "The year is 2240, and the world has reached breaking limit. You have unlimited world resources to solve the problem.",
 "How would the world be different if something about it's fundamental make-up was different? No moon? Fire instead of rain? Less gravity?",
-"You get a job as a supervillan's apprentice. Do you agree with what they're doing?"
-
+"You get a job as a supervillan's apprentice. Do you agree with what they're doing?",
+"You find an odd-looking egg in the forest. When you take it home, it cracks open...",
+"Write from the point of view of a dragon... are you being blamed for things you can't help?",
+"Your ship finds a worm-hole that seems to lead to a world different in several creepy ways.",
+"Something in your house comes alive. What does it think of you?",
+"You're a trained Lion-tamer. But one day, Rex, your lion, seems off and more angry than usual.",
+"The police seem to be chasing you, which is odd, because you just got home from a vacation and you didn't commit any crimes...",
+"You accidently consume a strong batch of a mysterious potion. Who was the owner? What might it do?"
 
 ]
 
@@ -30,7 +36,10 @@ nonfiction_array = [ "Write about the scariest thing that ever happened while yo
 "If you had to make your job sound as exciting as possible to win a competition, what would you write?",
 "What is the worst thing you've seen someone do? Were they punished by the universe?",
 "Write about a time you were let down by someone important.",
-"Describe the best view you've ever seen."
+"Describe the best view you've ever seen. Or the worst.",
+"Are you scared of something unusual? What about it is so creepy?",
+"What are the best things about your partner/best friend? What are the worst?"
+
 
 ]
 
