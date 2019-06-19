@@ -14,10 +14,6 @@ class HomeController < ApplicationController
 
   private
 
-  def load_recent_works
-    @recent_works ||= work_scope.top_10_recent
-  end
-
   def load_active
     @active ||= Work.active
   end

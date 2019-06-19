@@ -7,12 +7,8 @@ class Work < ApplicationRecord
   has_many :bookmarks
   has_many :claps
 
-  def self.top_10_recent
-    Work.order('updated_at DESC').limit(10)
-  end
-
   def self.active
-    Work.where('updated_at > ?', 60.minutes.ago).sort_by(&:updated_at).reverse!
+    Work.order('updated_at DESC').limit(10)
   end
 
   def self.popular

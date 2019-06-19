@@ -9,11 +9,11 @@ RSpec.describe Work, type: :model do
   let!(:work3) { Work.create(title: 'work 3', genre: 'bob', user_id: user.id) }
 
   it 'retrieves 10 recently updated' do
-    expect(Work.top_10_recent.count).to eq(3)
+    expect(Work.active.count).to eq(3)
   end
 
   it 'orders them from most recent' do
-    expect(Work.top_10_recent.first).to eq(work3)
+    expect(Work.active.first).to eq(work3)
   end
 
   it 'orders them by most popular' do

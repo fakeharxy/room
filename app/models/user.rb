@@ -115,10 +115,10 @@ class User < ApplicationRecord
   end
 
   def last_active
-    works.top_10_recent.first.updated_at
+    works.active.first.updated_at
   end
 
   def last_active_work
-    works.top_10_recent.first
+    works.active.first
   end
 end
