@@ -17,11 +17,15 @@
 }
 
 .card-bookmark {
+  position:absolute;
+  top: -4px;
+  left: -6px;
   cursor: pointer;
+  margin-right: 3px;
 }
 
 .card--options {
-  width: 10%;
+  width: 11%;
   position: relative;
   z-index: 500;
   float:right;

@@ -11,3 +11,4 @@ jQuery ->
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       method: 'POST'
     event.target.remove()
+    event.preventDefault()
