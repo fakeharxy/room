@@ -124,6 +124,6 @@ class User < ApplicationRecord
 
   def get_correspondence(id)
     correspondence = sent_messages.where(to_id: id) + received_messages.where(from_id: id)
-    correspondence.sort_by(&:created_at)
+    correspondence.sort_by(&:created_at).reverse!
   end
 end
