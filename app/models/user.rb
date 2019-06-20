@@ -121,4 +121,9 @@ class User < ApplicationRecord
   def last_active_work
     works.active.first
   end
+
+  def get_correspondence(id)
+    correspondence = sent_messages.where(to_id: id) + received_messages.where(from_id: id)
+    correspondence.sort_by(&:created_at)
+  end
 end

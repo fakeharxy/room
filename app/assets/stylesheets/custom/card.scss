@@ -21,10 +21,19 @@
 }
 
 .card--options {
-  position: absolute;
-  right: 30px;
-  top: 11px;
+  width: 10%;
+  position: relative;
   z-index: 500;
+  float:right;
+}
+
+.is_featured {
+  width: 17%;
+}
+
+.card--count-img {
+  margin-right: 3px;
+  margin-top: -6px;
 }
 
 .card-body {

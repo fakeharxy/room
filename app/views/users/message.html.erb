@@ -6,3 +6,12 @@
   <%= f.submit "Send", class: "btn btn-success" %>
 <% end %>
 
+<% if @messages != [] %>
+  <br />
+  <h3> Previous messages </h3>
+  <% @messages.each do |message| %>
+    <%= render :partial => 'messages/message', :locals => {message: message} %>
+  <% end %>
+  <p class="faded-text"> *Please note that any deleted messages will not appear in this summary </p>
+<% end %>
+

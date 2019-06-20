@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def message
     load_message
     load_user
+    @messages = @user.get_correspondence(current_user.id)
   end
 
 

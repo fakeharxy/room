@@ -3,11 +3,13 @@
     <span class="card--text"> <%= work.title %> </span>
     <span class="card--text"> <b> | </b> by <b> <%= work.user == current_user ? "You!" : work.user.username %> </b></span>
     <b> | </b> <span class="card--text"><%= work.genre.downcase %> </span> <b> | </b>active: <i> <%= time_ago_in_words work.updated_at %> </i>
-  </a>
-    <span class="card--options">
+    <div class="card--options">
       <% if work.is_bookmarked_by(current_user.id) %>
         <img id="remove_bookmark_<%= work.id %>" data-id="<%= work.id %>" class="card-bookmark" title='Remove bookmark' src="/images/empty-bookmark.png" width='24' />
       <% end %>
-      <img  src="/images/clap-0.png" width='28' /> <span class="card--count-text"> <%= work.day_clap_count %> <span class="faded-text">(<%= work.clap_count %>)</span></span>
-    </span>
+      <img class="card--count-img" src="/images/clap-0.png" width='28' />
+      <span class="card--count-text"> <%= work.day_clap_count %> <span class="faded-text">(<%= work.clap_count %>)</span>
+      </span>
+    </div>
+  </a>
 </div>

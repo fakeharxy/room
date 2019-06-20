@@ -6,7 +6,7 @@ $(document).on 'click', '#nonfiction_generate', (event) ->
   prompt = nonfiction_array[Math.floor(Math.random() * nonfiction_array.length)]
   $('#prompt_input').val(prompt)
 
-fiction_array = [ "An old woman/man wakes up in a land populated entirely by dogs. They feel young and fit again.",
+fiction_array = [ "An old woman/man wakes up in a land populated entirely by dogs. The character feels young and fit again.",
 "A vampire seems to be the only one to survive an enviromental apocalypse. It's so hungry.",
 "You've always grown up with the circus. But it's so boring. You want something *really* exciting to happen.",
 "For your first ever job, you're sent to work off-world in a remote colony. What are you doing?",
@@ -27,7 +27,8 @@ fiction_array = [ "An old woman/man wakes up in a land populated entirely by dog
 "You're a furniture maker, asked to renovate a old family heirloom. In the back of the cupboard, you find the most bizarre object...",
 "It's Christmas, and your character is alone again. But a unusual, eccentric being falls down the chimney...",
 "There are zombies. How predicatable. But humans seem uneffected by the virus... only animals turn into bloodsucking monsters.",
-"You move into a flat with thin walls. It's absolutely incredible what the neighbours talk about/get up to!"
+"You move into a flat with thin walls. It's absolutely incredible what the neighbours talk about/get up to!",
+"You or a character find a deep well, with a small voice at the bottom calling for help. The well is wider and deeper than any you've ever seen.","You are a knight, bound to the king/queen of the realm. But lately, their decisions have been getting worse and worse."
 
 ]
 
@@ -45,11 +46,13 @@ nonfiction_array = [ "Write about the scariest thing that ever happened while yo
 "Are you scared of something unusual? What about it is so creepy?",
 "What are the best things about your partner/best friend? What are the worst?",
 "Write a letter to someone who deserves it. Why do they deserve it? Is it positive or negative?",
-"Who do you look up to? Do you objectively think they deserve it? What qualities do they have you admire?",
+"Who do you look up to? Do you objectively think they deserve it? What qualities do they have that you admire?",
 "Write about your worst or best restaurant experience. Embellish it deliciously!",
 "What's the most danger you've ever been in?",
 "Do you have a good relationship with your siblings? Why? Are you similar?",
-"You're tasked with creating the craziest sport/boardgame the world has ever seen. What does it entail?"
+"You're tasked with creating the craziest sport/boardgame the world has ever seen. What does it entail?",
+"What is the best sports match/game you've ever witnessed? Describe it in detail.",
+"We all have bad habits. How have yours affected your life? Does any positive come from them?"
 
 
 ]

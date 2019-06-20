@@ -26,11 +26,11 @@
 <b>|</b> <b>followers:</b> <%= @user.followers_count %>
 <b>|</b> <b>active:</b> <i><%= time_ago_in_words(@user.last_active) %> </i></p>
   <div class="users--row row">
-    <div class="col-sm-6">
+    <div class="col-xl">
       <h5> <i class="card--icon fas fa-crown"> </i> Best evah </h5>
       <%= render partial: 'users/featured', locals: { work: @best, type: 'best' } %>
     </div>
-    <div class="col-sm-6">
+    <div class="col-xl">
       <h5> <i class="card--icon far fa-clock"> </i> Most recent </h5>
       <%= render partial: 'users/featured', locals: { work: @recent, type: 'recent' } %>
     </div>

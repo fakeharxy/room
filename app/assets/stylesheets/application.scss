@@ -22,9 +22,8 @@ body, .container {
 
 .container {
   padding-top: 20px;
-  margin: 40px;
-  width: 70% !important;
-  max-width: 1000px !important;
+  margin-top: 40px;
+  width: 69% !important;
 }
 
 .message-content {
@@ -32,47 +31,6 @@ body, .container {
   width: 100%;
   margin-bottom: 100px;
 }
-
-trix-toolbar .button_group {
-  button.code {
-    display: none;
-  }
-
-  button.quote {
-    display: none;
-  }
-
-  button.link {
-    display: none;
-  }
-
-  button.decrease {
-    display: none;
-  }
-
-  button.increase {
-    display: none;
-  }
-}
-
-.history_tools {
-  position: fixed;
-  left: 87%;
-  top: 105px;
-}
-
-.block_tools {
-  position: fixed;
-  right: 85%;
-  top: 145px;
-}
-
-.text_tools {
-  position: fixed;
-  right: 85%;
-  top: 105px;
-}
-
 
 #scrollPos {
   display: inline-flex;
@@ -83,6 +41,7 @@ trix-toolbar .button_group {
 
 .faded-text {
   opacity: 0.5;
+  margin-bottom: 8px;
 }
 
 .list-group-item {

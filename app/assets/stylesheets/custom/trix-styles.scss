@@ -1,0 +1,79 @@
+trix-toolbar .button_group {
+  display: contents;
+
+  button {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #bbb;
+    border-top-color: #ccc;
+    border-bottom-color: #888;
+    border-radius: 3px;
+  }
+
+  button.code {
+    display: none;
+  }
+
+  button.redo {
+    display: none;
+  }
+
+  button.quote {
+    display: none;
+  }
+
+  button.link {
+    display: none;
+  }
+
+  button.decrease {
+    display: none;
+  }
+
+  button.increase {
+    display: none;
+  }
+
+  button.undo {
+    position: fixed;
+    right: 84.1%;
+    top: 100px;
+  }
+
+  button.heading-1 {
+    position: fixed;
+    right: 84.1%;
+    top: 150px;
+  }
+
+  button.bold {
+    position: fixed;
+    right: 84.1%;
+    top: 180px;
+  }
+
+  button.italic {
+    position: fixed;
+    right: 84.1%;
+    top: 210px;
+  }
+
+  button.strike {
+    position: fixed;
+    right: 84.1%;
+    top: 260px;
+  }
+
+  button.list.bullets {
+    position: fixed;
+    right: 84.1%;
+    top: 290px;
+  }
+
+  button.list.numbers {
+    position: fixed;
+    right: 84.1%;
+    top: 320px;
+  }
+}
+
