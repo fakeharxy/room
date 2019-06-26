@@ -47,7 +47,7 @@ class User < ApplicationRecord
   def following_works
     works = []
     self.following.each do |user|
-      works << user.last_active_work
+      works << user.last_active_work if user.last_active_work
     end
     works.sort_by(&:updated_at).reverse!
   end
