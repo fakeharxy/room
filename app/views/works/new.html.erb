@@ -8,16 +8,16 @@
     </div>
   <% end %>
   <div class="input-group">
-    <textarea name="work[prompt]" type="text" id="prompt_input" rows='3' class="form-control form--text-field" placeholder="Add a Writing Prompt (Optional)" aria-describedby="button-addon4"></textarea>
+    <textarea name="work[prompt]" type="text" id="prompt_input" rows='3' class="form-control form--text-field" placeholder="Add a Description or Writing Prompt (Optional)" aria-describedby="button-addon4"></textarea>
     <div class="input-group " id="button-addon4">
       <button id="fiction_generate" class="btn btn-outline-secondary form--text-field form--group-button" type="button"><i class="fas fa-hat-wizard"></i></button>
       <button id="nonfiction_generate"  class="btn btn-outline-secondary form--text-field form--group-button" type="button"><i class="far fa-newspaper"></i></button>
-      <button type="button" data-toggle="modal" data-target="#prompt_modal" class="form--invisible-button"> <img src="/images/questionmark.png" id="prompt_question" class="form--text-field form--question-image"></button>
+      <button type="button" data-toggle="modal" data-target="#prompt_modal" class="form--invisible-button"> <img src="/images/questionmark.png" id="prompt_question" class="form--text-field form--question-image"> <span class="form--text faded-text"><i>Tell me about writing prompts</i> </span> </button>
     </div>
   </div>
   <div class="form-group form-check">
     <input name="work[show_prompt]" type="checkbox" class="form-check-input" id="prompt_show">
-    <label class="form-check-label" for="exampleCheck1">Display Prompt to viewers?</label>
+    <label class="form-check-label" for="exampleCheck1">Display prompt/description to viewers?</label>
   </div>
   <%= f.text_field :title, class: "form-control form--text-field", placeholder: "Title your work.", maxlength: 20 %>
   <%= f.text_field :genre, class: "form-control form--text-field", placeholder: "A rough genre. Sci-fi? Comedy? Free-write?", maxlength: 20 %>

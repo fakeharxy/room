@@ -1,5 +1,7 @@
 <% if (current_user == @work.user || @work.show_prompt) && @work.prompt != '' %>
    <p class="faded-text"> <i class="far fa-lightbulb"></i> <%= @work.prompt %> </p>
+ <% else %>
+   <br/>
 <% end %>
 <% if current_user != @work.user %>
   <div class="message-content">

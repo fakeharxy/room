@@ -22,6 +22,10 @@
   border: none;
 }
 
+.form--text {
+  vertical-align: middle;
+}
+
 input:focus, button {
-    outline: none !important;
+  outline: none !important;
 }
