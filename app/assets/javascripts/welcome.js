@@ -6,6 +6,6 @@ var showText = function (target, message, index, interval) {
 }
 
 $(function () {
-  showText("#msg", "A real-time reading and writing tool...", 0, 80);
+  showText("#msg", "Real-time reading, writing and learning.", 0, 100);
 
 });
