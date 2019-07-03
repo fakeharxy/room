@@ -1,7 +1,7 @@
 <div class="message--card card">
   <div class="card-body">
-    <h5 class="card-title">to <%= current_user.username %></h5>
-    <% if !message.read %>
+    <h5 class="card-title">to <%= message.message_receiver.username %></h5>
+    <% if !message.read && current_user == message.message_receiver %>
       <badge class="badge badge-info message--unread"> </badge>
     <% end %>
     <h6 class="card-subtitle mb-2 text-muted">from <a href="users/<%= message.message_sender.id %>"><%= message.message_sender.username %></a>
@@ -12,7 +12,7 @@
     <p class="card-text"> <%= message.message %></p>
     <div class="message--options">
       <a href="users/<%= message.message_sender.id %>/message" class="card-link"><i class="fas fa-reply"></i> Reply</a>
-      <% if !message.read %>
+      <% if !message.read && current_user == message.message_receiver %>
         <a href="messages/<%= message.id %>/mark_read" class="card-link"><i class="fas fa-book-reader"></i> Mark as read</a>
       <% end %>
       <a href="messages/<%= message.id %>/destroy" class="card-link"><i class="far fa-trash-alt"></i> Delete</a>

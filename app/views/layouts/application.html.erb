@@ -37,9 +37,11 @@
           <body>
             <% if user_signed_in?  %>
               <%= render :partial => 'layouts/navigation', :locals => {user: current_user} %>
+            <div class="container">
+            <% else %>
+              <%= render :partial => 'welcome/navigation' %>
             <% end  %>
 
-            <div class="container">
               <%= yield %>
             </div>
           </body>
