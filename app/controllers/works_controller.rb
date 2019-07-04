@@ -56,7 +56,7 @@ class WorksController < ApplicationController
 
   def save_work
     if @work.save
-      if ENV['ENVIRONMENT'] == 'production'
+      if ENV['RAILS_ENV'] == 'production'
         @client.update("#{@work.user.username} just started a new piece of writing called #{@work.title} on app.writeroom.online! Why not check it out? #writeroom #writing #amwriting")
       end
       redirect_to @work
