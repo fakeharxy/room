@@ -14,6 +14,7 @@ class WorksController < ApplicationController
 
   def create
     build_work
+    set_up_twitter
     save_work || render('new')
   end
 
@@ -38,14 +39,28 @@ class WorksController < ApplicationController
   def build_work
     @work ||= work_scope.build
     @work.attributes = work_params
-    if work_params['show_prompt'] != 'on'
-      @work.update(show_prompt: false)
-    end
+    @work.update(show_prompt: false) if work_params['show_prompt'] != 'on'
     @work.user = current_user
   end
 
+  def set_up_twitter
+    require 'twitter'
+
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['CONSUMER_KEY']
+      config.consumer_secret     = ENV['CONSUMER_SECRET']
+      config.access_token        = ENV['ACCESS_TOKEN']
+      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+    end
+  end
+
   def save_work
-    redirect_to @work if @work.save
+    if @work.save
+      if ENV['ENVIRONMENT'] == 'production'
+        @client.update("#{@work.user.username} just started a new piece of writing called #{@work.title} on app.writeroom.online! Why not check it out? #writeroom #writing #amwriting")
+      end
+      redirect_to @work
+    end
   end
 
   def work_params
