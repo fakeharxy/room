@@ -1,0 +1,86 @@
+.welcome--container {
+  width: 80%;
+  margin: auto;
+}
+
+.feather--img {
+  height: 400px;
+  left: 70px;
+  top: 80px;
+}
+
+.jumbotron {
+  background-color: #bbeabe !important;
+  color: #626568;
+}
+
+#anchor {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+#msg {
+  font-size: 24px;
+  position: absolute;
+  line-height: 45px;
+  top: 380px;
+  margin-left: 225px;
+}
+.blinking-cursor {
+  font-weight: 150;
+  font-size: 28px;
+  line-height: 35px;
+  color: #2E3D48;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+
