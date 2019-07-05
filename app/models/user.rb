@@ -45,6 +45,7 @@ class User < ApplicationRecord
   end
 
   def can_tweet?
+    require 'pry'; binding.pry
     (last_tweeted - DateTime.now) <= -720
   end
 

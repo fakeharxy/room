@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class WorksController < ApplicationController
+  include WorksHelper
   before_action :authenticate_user!
 
   def index
