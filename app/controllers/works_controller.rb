@@ -43,22 +43,13 @@ class WorksController < ApplicationController
     @work.user = current_user
   end
 
-  def set_up_twitter
-    require 'twitter'
-
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['CONSUMER_KEY']
-      config.consumer_secret     = ENV['CONSUMER_SECRET']
-      config.access_token        = ENV['ACCESS_TOKEN']
-      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-    end
-  end
 
   def save_work
     if @work.save
       if ENV['RAILS_ENV'] == 'production'
         @client.update("#{@work.user.username} just started a new piece of writing called #{@work.title} on app.writeroom.online! Why not check it out? #writeroom #writing #amwriting")
       end
+      @work.user.has_tweeted
       redirect_to @work
     end
   end

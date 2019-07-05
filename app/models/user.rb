@@ -44,6 +44,14 @@ class User < ApplicationRecord
     User.where('lower(username) LIKE ?', "%#{criteria.downcase}%").all.sort_by(&:updated_at).reverse!
   end
 
+  def can_tweet?
+    (last_tweeted - DateTime.now) <= -720
+  end
+
+  def has_tweeted
+    update(last_tweeted: DateTime.now)
+  end
+
   def following_works
     works = []
     self.following.each do |user|
