@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2019_07_05_151728) do
     t.boolean "writer", default: true
     t.string "username"
     t.integer "clap_colour", default: 0
-    t.datetime "last_clap", default: "2019-06-03 16:55:14"
+    t.datetime "last_clap", default: "2019-07-05 15:45:55"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "last_tweeted", default: "2019-07-05 15:22:45"
+    t.datetime "last_tweeted", default: "2019-07-04 15:45:56"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
