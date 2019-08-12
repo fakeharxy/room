@@ -2,10 +2,6 @@ $(document).on 'click', '#fiction_generate', (event) ->
   prompt = fiction_array[Math.floor(Math.random() * fiction_array.length)]
   $('#prompt_input').val(prompt)
 
-$(document).on 'click', '#nonfiction_generate', (event) ->
-  prompt = nonfiction_array[Math.floor(Math.random() * nonfiction_array.length)]
-  $('#prompt_input').val(prompt)
-
 fiction_array = [ "An old woman/man wakes up in a land populated entirely by dogs. The character feels young and fit again.",
 "A vampire seems to be the only one to survive an enviromental apocalypse. It's so hungry.",
 "You've always grown up with the circus. But it's so boring. You want something *really* exciting to happen.",
@@ -22,24 +18,23 @@ fiction_array = [ "An old woman/man wakes up in a land populated entirely by dog
 "Something in your house comes alive. What does it think of you?",
 "You're a trained Lion-tamer. But one day, Rex, your lion, seems off and more angry than usual.",
 "The police seem to be chasing you, which is odd, because you just got home from a vacation and you didn't commit any crimes...",
+"There is a fire raging through your home town, and it doesn't look like anybody is going to be able to stop it.",
 "You accidentally consume a strong batch of a mysterious potion. Who was the owner? What might it do?",
 "You or a character has been in bed sick for a week. One day, you notice the internet has had absolutely no new content added in the last 24 hours.",
 "You're a furniture maker, asked to renovate a old family heirloom. In the back of the cupboard, you find the most bizarre object...",
 "It's Christmas, and your character is alone again. But a unusual, eccentric being falls down the chimney...",
 "There are zombies. How predicatable. But humans seem uneffected by the virus... only animals turn into bloodsucking monsters.",
 "You move into a flat with thin walls. It's absolutely incredible what the neighbours talk about/get up to!",
-"You or a character find a deep well, with a small voice at the bottom calling for help. The well is wider and deeper than any you've ever seen.","You are a knight, bound to the king/queen of the realm. But lately, their decisions have been getting worse and worse."
-
-]
-
-
-nonfiction_array = [ "Write about the scariest thing that ever happened while you were at school.",
+"You or a character find a deep well, with a small voice at the bottom calling for help. The well is wider and deeper than any you've ever seen.","You are a knight, bound to the king/queen of the realm. But lately, their decisions have been getting worse and worse.",
+"Write about the scariest thing that ever happened while you were at school.",
 "What was your first/worst job like?",
 "Write a journal entry for the most interesting day of the last month.",
 "When did you feel the most physical pain in your life? What happened?",
 "When was the last time you had to be brave or strong? How did it go?",
 "What event made you feel like an adult for the first time?",
+"You keep dreaming the same thing, night after night, and it's getting more and more real, and longer and longer...",
 "If you had to make your job sound as exciting as possible to win a competition, what would you write?",
+"It turns out your great-grandfather left you a mysterious box, and you've only found it now amongst your parents' things. You weren't even born when he died...",
 "What is the worst thing you've seen someone do? Were they punished by the universe?",
 "Write about a time you were let down by someone important.",
 "Describe the best view you've ever seen. Or the worst.",
@@ -52,7 +47,7 @@ nonfiction_array = [ "Write about the scariest thing that ever happened while yo
 "Do you have a good relationship with your siblings? Why? Are you similar?",
 "You're tasked with creating the craziest sport/boardgame the world has ever seen. What does it entail?",
 "What is the best sports match/game you've ever witnessed? Describe it in detail.",
-"We all have bad habits. How have yours affected your life? Does any positive come from them?"
+"We all have bad habits. How have yours affected your life? Does anything positive come from them?"
 
 
 ]
